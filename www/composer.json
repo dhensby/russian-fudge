@@ -1,0 +1,22 @@
+{
+	"name": "silverstripe/installer",
+	"description": "The SilverStripe Framework Installer",
+	"require": {
+		"php": ">=5.3.3,<7",
+		"silverstripe/framework": "3.2.x-dev",
+		"gdmedia/ss-auto-git-ignore": "dev-master",
+		"guzzlehttp/guzzle": "5.3",
+		"guzzlehttp/cache-subscriber": "^0.2.0@dev"
+	},
+	"require-dev": {
+		"phpunit/PHPUnit": "~3.7"
+	},
+	"config": {
+		"process-timeout": 600
+	},
+	"scripts": {
+		"post-update-cmd": "GDM\\SSAutoGitIgnore\\UpdateScript::Go"
+	},
+	"prefer-stable": true,
+	"minimum-stability": "dev"
+}
