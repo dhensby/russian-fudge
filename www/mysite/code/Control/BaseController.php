@@ -4,31 +4,27 @@ class BaseController extends Controller {
 
 	private static $url_segment = '';
 
-	public function init() {
+	private $baseURL;
+
+	public function setBaseURL($url) {
+		$this->baseURL = $url;
+		return $this;
+	}
+
+	public function getBaseURL() {
+		return $this->baseURL;
+	}
+
+	public function Link($action = null) {
+		Controller::join_links($this->getBaseURL(), $this->config()->url_segment, $action);
+	}
+
+	/*public function init() {
 		parent::init();
-
 		$googleService = new GooglePlacesService();
-		$resp = $googleService->getService()->get('nearbysearch/json', array(
-			'query' => array(
-				'location' => '51.5076040,-0.0737460',
-				'keyword' => 'cake',
-				'rankby' => 'distance',
-				'type' => implode('|', array(
-					'bakery',
-					'bar',
-					'cafe',
-					'establishment',
-					'food',
-					'grocery_or_supermarket',
-					'meal_delivery',
-					'meal_takeaway',
-					'restaurant',
-					'store',
-				)),
-			),
-		))->json();
+		$places = $googleService->getNearby(51.5076040, -0.0737460);
 
-		foreach ($resp['results'] as $item) {
+		foreach ($places as $item) {
 			$spot = Spot::get()->filter(array(
 				'GooglePlaceID' => $item['place_id'],
 			))->first();
@@ -42,6 +38,6 @@ class BaseController extends Controller {
 			))->write();
 			Debug::show($spot->getGoogleDetails());
 		}
-	}
+	}*/
 
 }

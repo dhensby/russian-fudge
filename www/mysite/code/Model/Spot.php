@@ -25,12 +25,8 @@ class Spot extends DataObject {
 
 	public function getGoogleDetails() {
 		$service = new GooglePlacesService();
-		$data = $service->getService()->get('details/json', array(
-			'query' => array(
-				'placeid' => $this->GooglePlaceID,
-			),
-		))->json();
-		return $data['result'];
+		$data = $service->getDetails($this->GooglePlaceID);
+		return $data;
 
 	}
 
