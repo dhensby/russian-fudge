@@ -3,15 +3,15 @@
 use GuzzleHttp\Client;
 use GuzzleHttp\Subscriber\Cache\CacheSubscriber;
 
-class GooglePlacesService {
+class GooglePlacesService implements TemplateGlobalProvider {
 
 	private $service;
 
 	private static $base_url = 'https://maps.googleapis.com/maps/api/place/';
 
-	private static $server_api_key = 'AIzaSyAXB5C7rjLFBYICVpN7Is4q8vibNlrb1DM';
+	private static $server_api_key = 'AIzaSyAR1kh7Htkp4z8WAIwXx3Fbz2oAdV5n2JY';
 
-	private static $browser_api_key = '';
+	private static $browser_api_key = 'AIzaSyBYNeH1tA_720GbKumHdTIsmLeVpn31zYo';
 
 	private static $success_status = array(
 		'OK',
@@ -45,8 +45,8 @@ class GooglePlacesService {
 		return $this;
 	}
 
-	public function config() {
-		return Config::inst()->forClass(get_class());
+	public static function config() {
+		return Config::inst()->forClass(get_called_class());
 	}
 
 	public function getDetails($placeID) {
@@ -73,13 +73,11 @@ class GooglePlacesService {
 					'bakery',
 					'bar',
 					'cafe',
-					'establishment',
 					'food',
 					'grocery_or_supermarket',
 					'meal_delivery',
 					'meal_takeaway',
 					'restaurant',
-					'store',
 				)),
 			),
 		));
@@ -89,6 +87,16 @@ class GooglePlacesService {
 			throw new ErrorException($data['error_message']);
 		}
 		return $data['results'];
+	}
+
+	public static function get_template_global_variables() {
+		return array(
+			'GMapsAPIKey' => 'get_browser_key',
+		);
+	}
+
+	public static function get_browser_key() {
+		return self::config()->browser_api_key;
 	}
 
 }

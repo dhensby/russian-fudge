@@ -2,9 +2,31 @@
 
 class ObjectController extends Controller {
 
+
 	private static $object_type;
 
+	private static $url_segment = '';
+
 	private $object;
+
+	private $baseURL = '';
+
+	public function setBaseURL($url) {
+		$this->baseURL = $url;
+		return $this;
+	}
+
+	public function getBaseURL() {
+		return $this->baseURL;
+	}
+
+	public function getURLSegment() {
+		return $this->config()->url_segment;
+	}
+
+	public function Link($action = null) {
+		return Controller::join_links($this->getBaseURL(), $this->getURLSegment(), $action);
+	}
 
 	public function getObject() {
 		return $this->object;
@@ -37,9 +59,7 @@ class ObjectController extends Controller {
 
 	protected function handleAction($request, $action) {
 		if (!$this->getObject()) {
-			Debug::show($this->getObject());
 			$obj = $this->getObjectFromRequest($request);
-			Debug::show($obj);
 			if (!$obj) {
 				return $this->httpError(404);
 			}
