@@ -6,3 +6,4 @@ Director:
   rules:
     '': 'RootController'
     'spot': 'SpotController'
+    'fe': 'FEController'

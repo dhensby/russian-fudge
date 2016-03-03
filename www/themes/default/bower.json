@@ -1,0 +1,23 @@
+{
+  "name": "russianfudge",
+  "homepage": "https://github.com/dhensby/russian-fudge",
+  "description": "",
+  "main": "main.scss",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.2"
+  }
+}
