@@ -61,5 +61,10 @@ $('.js-places-search-form').each(function() {
 		$form.submit();
 	});
 
-	//$form.on()
 });
+
+
+$('.js-map').each(function() {
+	var $map = $(this);
+	var map = new google.maps.Map($map[0]);
+})
