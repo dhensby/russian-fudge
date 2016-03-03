@@ -11,7 +11,7 @@ class GooglePlacesService implements TemplateGlobalProvider {
 
 	private static $server_api_key = 'AIzaSyAR1kh7Htkp4z8WAIwXx3Fbz2oAdV5n2JY';
 
-	private static $browser_api_key = 'AIzaSyBYNeH1tA_720GbKumHdTIsmLeVpn31zYo';
+	private static $browser_api_key = 'AIzaSyAR1kh7Htkp4z8WAIwXx3Fbz2oAdV5n2JY';
 
 	private static $success_status = array(
 		'OK',

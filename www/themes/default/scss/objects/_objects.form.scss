@@ -1,0 +1,64 @@
+.form {
+
+}
+
+.form--login {
+
+	& .form__field {
+		border: none;
+		border-bottom: 1px solid #fff;
+		border-radius: 0;
+		background: none;
+		font-size: 1rem;
+
+		&,
+		&::-webkit-input-placeholder,
+		//&:-moz-placeholder,
+		//&::-moz-placeholder,
+		//&:-ms-input-placeholder
+		&:placeholder-shown
+		{
+			color: #fff;
+		}
+
+		&:focus {
+			border-color: inherit;
+		}
+	}
+
+}
+
+.form__label {
+
+	&--hidden {
+		display: none;
+	}
+}
+
+.form__field {
+	padding: 1rem;
+}
+
+.form__field-holder {
+
+	&--icon {
+
+		.form__field {
+			padding-left: 2rem;
+			background-color: transparent;
+			background-position: left center;
+			background-repeat: no-repeat;
+			background-size: 1rem;
+
+			&--mail {
+				background-image: url(../img/letter.svg);
+			}
+
+			&--secure {
+				background-size: 0.75rem;
+				background-image: url(../img/padlock.svg);
+				background-position: 0.25rem 50%;
+			}
+		}
+	}
+}

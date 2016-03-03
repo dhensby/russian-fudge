@@ -1,0 +1,29 @@
+@import "../../bower_components/bootstrap/scss/forms";
+
+.form__field-holder {
+	@extend .form-group;
+
+	&--radio {
+		@extend .radio;
+	}
+
+	&--radio-inline {
+		@extend .radio-inline;
+	}
+
+	&--checkbox {
+		@extend .checkbox;
+	}
+
+	&--checkbox-inline {
+		@extend .checkbox-inline;
+	}
+}
+
+.form__field {
+	@extend .form-control;
+
+	&--file {
+		@extend .form-control-file;
+	}
+}
